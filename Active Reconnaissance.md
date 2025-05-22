@@ -58,3 +58,62 @@ nmap -sV -p 4280 --script vulscan/vulscan.nse 127.0.0.1 -oN dvwa_nmap_scan.txt
 
 The scan results are saved in the text file [dvwa_nmap_scan.txt](dvwa_nmap_scan.txt).
 
+---
+
+## Enumerating directories and files using gobuster
+
+**Install gobuster**:
+
+``` bash
+sudo apt-get install gobuster
+```
+
+**Install gobuster SecLists repository,which contains “common.txt” wordlist contains a good number of common directory names.**
+
+``` bash
+sudo apt-get install seclists
+```
+
+**Scan Directories and Files on DVWA**:
+
+``` bash
+gobuster dir -u http://localhost:4280/ -w /usr/share/wordlists/dirb/common.txt
+```
+
+This command enumerates DVWA directories using the common directory names from seclists.
+
+``` bash
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://localhost:4280/
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirb/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/.htpasswd            (Status: 403) [Size: 276]
+/.htaccess            (Status: 403) [Size: 276]
+/.hta                 (Status: 403) [Size: 276]
+/config               (Status: 301) [Size: 314] [--> http://localhost:4280/config/]
+/database             (Status: 301) [Size: 316] [--> http://localhost:4280/database/]
+/docs                 (Status: 301) [Size: 312] [--> http://localhost:4280/docs/]
+/external             (Status: 301) [Size: 316] [--> http://localhost:4280/external/]
+/favicon.ico          (Status: 200) [Size: 1406]
+/index.php            (Status: 302) [Size: 0] [--> login.php]
+/php.ini              (Status: 200) [Size: 154]
+/phpinfo.php          (Status: 302) [Size: 0] [--> login.php]
+/robots.txt           (Status: 200) [Size: 25]
+/server-status        (Status: 403) [Size: 276]
+/tests                (Status: 301) [Size: 313] [--> http://localhost:4280/tests/]
+Progress: 4614 / 4615 (99.98%)
+===============================================================
+Finished
+===============================================================
+
+```
