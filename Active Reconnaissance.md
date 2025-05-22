@@ -56,5 +56,5 @@ This script extends the functionality of Nmap and pulls in vulnerability databas
 nmap -sV -p 4280 --script vulscan/vulscan.nse 127.0.0.1 -oN dvwa_nmap_scan.txt
 ```
 
-The scan results are saved in the text file dvwa_nmap_scan.txt.
+The scan results are saved in the text file [dvwa_nmap_scan.txt](dvwa_nmap_scan.txt).
 
