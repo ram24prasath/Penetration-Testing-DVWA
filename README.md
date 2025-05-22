@@ -45,20 +45,20 @@ To begin testing DVWA, please follow these steps to set up your local environmen
 
 1. **Install Docker and DVWA** (if not already installed):
 
-   [Installation Setup](path/to/installation-setup.md)
+   [Installation Setup](path/to/DVWA_Setup.md)
    
-2. **Start the DVWA Docker container**:
+3. **Start the DVWA Docker container**:
 
    ```bash
    docker-compose up -d
-3. **Access DVWA**:
+4. **Access DVWA**:
    Open a browser and go to http://localhost:4280. The default credentials are:
 
     Username: admin
 
     Password: password
 
-4. Configure DVWA Security level after logging in to the application.
+5. Configure DVWA Security level after logging in to the application.
   After logging in, navigate to the "DVWA Security" page and set the security level to the desired difficulty (Low, Medium, High, or Impossible).
 
 ## Disclaimer
