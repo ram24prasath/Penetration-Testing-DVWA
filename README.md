@@ -61,6 +61,22 @@ To begin testing DVWA, please follow these steps to set up your local environmen
 4. Configure DVWA Security level after logging in to the application.
   After logging in, navigate to the "DVWA Security" page and set the security level to the desired difficulty (Low, Medium, High, or Impossible).
 
+## Configurations
+
+### Config File
+
+DVWA ships with a dummy copy of its config file which you will need to copy into place and then make the appropriate changes. On Linux, assuming you are in the DVWA directory, this can be done as follows:
+
+`cp config/config.inc.php.dist config/config.inc.php`
+
+## Database Setup
+
+To set up the database, simply click on the Setup DVWA button in the main menu, then click on the Create / Reset Database button. This will create / reset the database for you with some data in.
+Make sure your database credentials are correct within ./config/config.inc.php.
+
+![image](https://github.com/user-attachments/assets/6b3f25a1-686f-4927-88a6-04b4da75779c)
+
+
 ## Disclaimer
 
 This project is for educational purpose. 
