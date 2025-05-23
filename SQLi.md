@@ -74,3 +74,7 @@ The response received:
 
 
 The hashed password can be decoded.
+
+
+## Security Level: Medium
+
