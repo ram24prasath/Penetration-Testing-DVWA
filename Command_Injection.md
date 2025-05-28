@@ -23,5 +23,37 @@ Here command injection would be possible if the atatcker can escape out of the d
 
 What this input does is, it pings the ip address given additionally it retrieves information about the current user through the command `whoami`.
 
+![image](https://github.com/user-attachments/assets/d354bbe4-3f96-4105-ab01-c0474fdf6af4)
 
+We were able to retreive the current user from the webserver. This is critical information to the attacker.
+
+# Security Level: Hard
+
+In this level, the devleopers have created a blacklist array to block the set of characters that helps command injection possible.
+
+```bash
+// Set blacklist
+    $substitutions = array(
+        '||' => '',
+        '&'  => '',
+        ';'  => '',
+        '| ' => '',
+        '-'  => '',
+        '$'  => '',
+        '('  => '',
+        ')'  => '',
+        '`'  => '',
+    );
+
+```
+
+If you can see, there is slight typo in the blacklist array, there is a space in ` '| ' => ''`. Atatckers can take advantage of this by exploiting this by using the following input.
+
+```
+127.0.0.1|ls
+```
+
+It executes file listing in web server and returns the files.
+
+![image](https://github.com/user-attachments/assets/33c84429-4052-4c6e-a1da-179045245f4b)
 
