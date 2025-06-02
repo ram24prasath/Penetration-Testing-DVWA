@@ -1,4 +1,6 @@
-# Prevention Techniques against SQLi
+# 🏁 SQL Injection(SQLi) Prevention Techniques 
+
+SQL Injection attacks can be effectively mitigated by following secure coding practices. Below are the key techniques to prevent SQLi in web applications.
 
 ## 1. Use Prepared statements and parameterized Queries
 
